@@ -12,70 +12,39 @@
     
     <style>
         :root { --red-bg: #780000; --gold: #d4af37; --cream: #fffbf0; --text-red: #bd0000; }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--red-bg); color: #fff; overflow-x: hidden;
-            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
-        }
-
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--red-bg); color: #fff; overflow-x: hidden; background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png'); }
         .font-wedding { font-family: 'Alex Brush', cursive; line-height: 1.2; } 
         .font-serif { font-family: 'Playfair Display', serif; }
-
-        .text-gold {
-            background: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%, #3a2c0f 78%); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #d4af37;
-            text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
-        }
+        .text-gold { background: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%, #3a2c0f 78%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #d4af37; text-shadow: 0px 1px 1px rgba(0,0,0,0.2); }
 
         /* --- HIỆU ỨNG CỬA MỞ --- */
         #door-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; }
-        .door {
-            width: 50%; height: 100%; background-color: var(--red-bg); position: relative; 
-            transition: transform 1.6s cubic-bezier(0.7, 0, 0.3, 1);
-            border-bottom: 4px solid #aa771c; display: flex; align-items: center; justify-content: center; overflow: hidden;
-        }
-        .door::before {
-            content: ''; position: absolute; top: 10%; width: 180%; height: 80%;
-            background-image: url('anhchim.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;
-            opacity: 0.4; mix-blend-mode: screen; pointer-events: none;
-        }
+        .door { width: 50%; height: 100%; background-color: var(--red-bg); position: relative; transition: transform 1.6s cubic-bezier(0.7, 0, 0.3, 1); border-bottom: 4px solid #aa771c; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .door::before { content: ''; position: absolute; top: 10%; width: 180%; height: 80%; background-image: url('anhchim.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.4; mix-blend-mode: screen; pointer-events: none; }
         #door-left { border-right: 1.5px solid #aa771c; transform-origin: left; }
         #door-right { border-left: 1.5px solid #aa771c; transform-origin: right; }
         .door-open-left { transform: perspective(1200px) rotateY(100deg); }
         .door-open-right { transform: perspective(1200px) rotateY(-100deg); }
-
         #btn-container { position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); z-index: 10000; transition: 0.5s; }
-        .btn-open {
-            padding: 12px 35px; border-radius: 50px; background: linear-gradient(to right, #aa771c, #ffd700);
-            border: 2px solid #fff; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-            color: #780000; font-weight: bold; cursor: pointer; animation: pulse-gold 2s infinite;
-        }
+        .btn-open { padding: 12px 35px; border-radius: 50px; background: linear-gradient(to right, #aa771c, #ffd700); border: 2px solid #fff; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); color: #780000; font-weight: bold; cursor: pointer; animation: pulse-gold 2s infinite; }
 
         /* --- STYLE CHO KHUNG THƯ MỜI --- */
-        .invitation-card {
-            background-color: var(--cream); color: #4a4a4a; border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            position: relative; padding: 12px; border: 1px solid #d4af37;
-        }
-        .inner-border {
-            border: 2px solid #d4af37; padding: 30px 15px; border-radius: 10px;
-            position: relative; height: 100%;
-        }
+        .invitation-card { background-color: var(--cream); color: #4a4a4a; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); position: relative; padding: 12px; border: 1px solid #d4af37; }
+        .inner-border { border: 2px solid #d4af37; padding: 30px 15px; border-radius: 10px; position: relative; }
         .corner-pattern { position: absolute; width: 45px; height: 45px; border-color: #d4af37; opacity: 0.8; }
         .top-left { top: 5px; left: 5px; border-top: 3px solid; border-left: 3px solid; }
         .top-right { top: 5px; right: 5px; border-top: 3px solid; border-right: 3px solid; }
         .bot-left { bottom: 5px; left: 5px; border-bottom: 3px solid; border-left: 3px solid; }
         .bot-right { bottom: 5px; right: 5px; border-bottom: 3px solid; border-right: 3px solid; }
 
-        /* Style Lịch */
+        /* Countdown & Lịch */
+        .countdown-box { background: #780000; border-radius: 10px; padding: 8px; min-width: 65px; color: #fff; }
         .calendar-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; }
         .calendar-day.active { color: #fff; font-weight: bold; position: relative; z-index: 1; }
         .heart-mark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ff4d4d; font-size: 2rem; z-index: -1; animation: beat 1s infinite; }
-
         @keyframes beat { 0%, 100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.2); } }
-        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
         .heart-fall { position: fixed; top: -10%; z-index: 50; color: #ff4d4d; animation: fall linear infinite; pointer-events: none; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
         
         .qr-container img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 3px solid #fff; border-radius: 8px; }
         .arch-photo { border-radius: 500px 500px 0 0; border: 4px solid #aa771c; padding: 5px; background: rgba(0,0,0,0.1); }
@@ -114,7 +83,7 @@
         <section class="py-20 px-6 bg-black/30" data-aos="fade-up">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="font-wedding text-5xl text-gold mb-8">Lời Ngỏ</h2>
-                <p class="text-lg italic text-gray-200 font-serif leading-loose">
+                <p class="text-lg md:text-xl italic text-gray-200 font-serif leading-loose">
                     "Gặp gỡ, yêu và cưới. Điều bạn vừa nghe không nằm trong một câu chuyện cổ tích, mà chính là câu chuyện về cuộc đời hai chúng tôi. Thật là một niềm vinh hạnh lớn khi ngày hạnh phúc nhất cuộc đời chúng tôi có sự hiện diện và chúc phúc của bạn!"
                 </p>
                 <p class="mt-6 font-wedding text-3xl text-gold">Chân thành cảm ơn bạn ❤️</p>
@@ -142,31 +111,29 @@
                     <div class="corner-pattern top-left"></div><div class="corner-pattern top-right"></div>
                     <div class="corner-pattern bot-left"></div><div class="corner-pattern bot-right"></div>
                     
-                    <div class="grid grid-cols-2 gap-4 mb-10 font-serif relative">
+                    <div class="grid grid-cols-2 gap-4 mb-10 font-serif relative text-center">
                         <div class="absolute left-1/2 h-full w-[1px] bg-gold/40 transform -translate-x-1/2"></div>
-                        <div class="text-center px-2">
+                        <div>
                             <h4 class="font-bold uppercase text-[10px] mb-3 text-gray-500 tracking-widest">Nhà Trai</h4>
                             <p class="font-bold text-gray-800 text-sm">Nguyễn Vĩnh Quảng</p>
                             <p class="font-bold text-gray-800 text-sm">Võ Thị Hiền</p>
-                            <p class="text-[9px] text-gray-500 mt-2 italic">Ngọc Thạch, Hà Nha, Đại Lộc, Quảng Nam</p>
+                            <p class="text-[9px] text-gray-500 mt-2 italic px-2">Ngọc Thạch, Hà Nha, Đại Lộc, Quảng Nam</p>
                         </div>
-                        <div class="text-center px-2">
+                        <div>
                             <h4 class="font-bold uppercase text-[10px] mb-3 text-gray-500 tracking-widest">Nhà Gái</h4>
                             <p class="font-bold text-gray-800 text-sm">Bà Nguyễn Thị Liên</p>
                             <p class="font-bold text-gray-800 text-sm opacity-0">...</p>
-                            <p class="text-[9px] text-gray-500 mt-2 italic">Thái Chấn Sơn, Thượng Đức, Quảng Nam</p>
+                            <p class="text-[9px] text-gray-500 mt-2 italic px-2">Thái Chấn Sơn, Thượng Đức, Quảng Nam</p>
                         </div>
                     </div>
 
                     <div class="text-center">
                         <h3 class="font-serif uppercase font-bold text-lg text-gray-700 tracking-widest mb-1">Trân trọng kính mời</h3>
                         <p class="font-bold text-gold text-2xl mb-8">Bạn và người thương</p>
-                        
                         <h1 class="font-wedding text-6xl text-[#bd0000] mb-2">Vĩnh Phúc</h1>
                         <div class="text-2xl text-red-500 animate-pulse">❤️</div>
                         <h1 class="font-wedding text-6xl text-[#bd0000] mt-2 mb-8">Diệu Linh</h1>
 
-                        <p class="uppercase text-gray-400 text-xs tracking-widest mb-4">Tiệc rượu chung vui tổ chức vào lúc</p>
                         <div class="flex items-center justify-center gap-6 border-y-2 border-gold/30 py-4 mb-2 max-w-sm mx-auto">
                             <span class="font-bold uppercase text-gray-700">Thứ Tư</span>
                             <span class="text-7xl font-serif text-[#bd0000] font-bold">15</span>
@@ -194,17 +161,15 @@
             <div class="max-w-md mx-auto relative">
                 <div class="absolute inset-0 rounded-3xl overflow-hidden"><img src="anhbia.png" class="w-full h-full object-cover opacity-40 blur-sm"></div>
                 <div class="calendar-card relative p-8 shadow-2xl">
-                    <div class="text-center mb-6">
-                        <span class="block text-3xl font-serif font-bold text-white uppercase tracking-widest">Tháng 4</span>
-                        <span class="block text-sm text-gold tracking-[0.6em]">2026</span>
-                    </div>
+                    <div class="text-center mb-6"><span class="block text-3xl font-serif font-bold text-white uppercase tracking-widest">Tháng 4</span><span class="block text-sm text-gold tracking-[0.6em]">2026</span></div>
                     <div class="grid grid-cols-7 gap-3 text-center text-sm">
                         <div class="text-gold font-bold">T2</div><div class="text-gold font-bold">T3</div><div class="text-gold font-bold">T4</div><div class="text-gold font-bold">T5</div><div class="text-gold font-bold">T6</div><div class="text-gold font-bold">T7</div><div class="text-red-400 font-bold">CN</div>
                         <div></div><div></div>
                         <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
                         <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div>
                         <div>13</div><div>14</div>
-                        <div class="active">15<div class="heart-mark">❤️</div></div> <div>16</div><div>17</div><div>18</div><div>19</div>
+                        <div class="active">15<div class="heart-mark">❤️</div></div>
+                        <div>16</div><div>17</div><div>18</div><div>19</div>
                         <div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div>
                         <div>27</div><div>28</div><div>29</div><div>30</div>
                     </div>
@@ -213,39 +178,29 @@
         </section>
 
         <section class="py-20 px-4 bg-black/20" data-aos="fade-up">
-            <div class="max-w-4xl mx-auto space-y-16">
-                <div class="text-center">
-                    <h2 class="font-wedding text-5xl text-gold mb-8">Video Pre-Wedding</h2>
-                    <div class="rounded-2xl overflow-hidden border-4 border-gold/50 aspect-video bg-black">
-                        <video controls class="w-full h-full object-cover"><source src="video.mp4" type="video/mp4"></video>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <h2 class="font-wedding text-5xl text-gold mb-8">Vị Trí Bản Đồ</h2>
-                    <div class="rounded-2xl overflow-hidden border-4 border-gold/50 h-80">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3836.853051010374!2d107.993485575825!3d15.854419145558913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awxqFuZw!5e0!3m2!1svi!2s!4v1707235000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
+            <div class="max-w-4xl mx-auto space-y-16 text-center">
+                <div><h2 class="font-wedding text-5xl text-gold mb-8">Video Pre-Wedding</h2><div class="rounded-2xl overflow-hidden border-4 border-gold/50 shadow-2xl aspect-video bg-black"><video controls class="w-full h-full object-cover"><source src="video.mp4" type="video/mp4"></video></div></div>
+                <div><h2 class="font-wedding text-5xl text-gold mb-8">Vị Trí Bản Đồ</h2><div class="rounded-2xl overflow-hidden border-4 border-gold/50 h-80 shadow-2xl"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15344.821035515286!2d107.98729571738281!3d15.8544141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awxqFuZw!5e0!3m2!1svi!2s!4v1707238000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div></div>
             </div>
         </section>
 
         <section class="py-20 px-2" data-aos="fade-up">
             <h2 class="font-wedding text-6xl text-center text-gold mb-12">Album Hạnh Phúc</h2>
             <div class="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3 max-w-7xl mx-auto">
-                <img src="anh1.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x400'">
-                <img src="anh2.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x500'">
-                <img src="anh3.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/400x300'">
-                <img src="anh4.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x450'">
-                <img src="anh5.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x350'">
-                <img src="anh6.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x400'">
-                <img src="anh7.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/400x400'">
-                <img src="anh8.png" class="rounded-lg shadow-xl w-full" data-aos="zoom-in" onerror="this.src='https://via.placeholder.com/300x550'">
+                <img src="anh1.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x400'">
+                <img src="anh2.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x500'">
+                <img src="anh3.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/400x300'">
+                <img src="anh4.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x450'">
+                <img src="anh5.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x350'">
+                <img src="anh6.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x400'">
+                <img src="anh7.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/400x400'">
+                <img src="anh8.png" class="rounded-lg shadow-xl w-full" onerror="this.src='https://via.placeholder.com/300x550'">
             </div>
         </section>
 
-        <section class="py-20 px-4 bg-gradient-to-b from-transparent to-black/60">
+        <section class="py-20 px-4 bg-gradient-to-b from-transparent to-black/60 text-center">
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="bg-white/95 p-8 rounded-3xl text-center text-red-900 shadow-2xl" data-aos="flip-left">
+                <div class="bg-white/95 p-8 rounded-3xl text-red-900 shadow-2xl" data-aos="flip-left">
                     <h3 class="font-wedding text-4xl mb-8">Hộp Mừng Cưới</h3>
                     <div class="grid grid-cols-2 gap-6 qr-container">
                         <div><img src="QR1.png" onerror="this.src='https://via.placeholder.com/150'"><p class="font-bold text-xs mt-3">Vĩnh Phúc</p></div>
@@ -253,7 +208,7 @@
                     </div>
                 </div>
                 <div class="bg-black/40 p-8 rounded-3xl border-2 border-gold/30 shadow-2xl" data-aos="flip-right">
-                    <h3 class="font-serif text-2xl text-center text-gold mb-6 uppercase">Xác Nhận Tham Dự</h3>
+                    <h3 class="font-serif text-2xl text-gold mb-6 uppercase tracking-widest">Xác Nhận Tham Dự</h3>
                     <form action="https://formspree.io/f/nguyenvinhphuc474@gmail.com" method="POST" class="space-y-4">
                         <input type="text" name="name" placeholder="Tên khách mời" class="w-full p-4 rounded-xl bg-white/10 border border-gold/30 text-white placeholder-gray-400 focus:outline-none focus:border-gold" required>
                         <select name="attendance" class="w-full p-4 rounded-xl bg-white/10 border border-gold/30 text-white focus:outline-none focus:border-gold">
@@ -262,8 +217,69 @@
                             <option value="Bận" class="text-black">Rất tiếc mình bận rồi</option>
                         </select>
                         <textarea name="message" placeholder="Lời chúc gửi hai bạn..." rows="3" class="w-full p-4 rounded-xl bg-white/10 border border-gold/30 text-white focus:outline-none focus:border-gold"></textarea>
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold to-[#aa771c] text-red-950 font-bold rounded-xl hover:brightness-110 shadow-lg transition uppercase tracking-widest">Gửi Xác Nhận</button>
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold to-[#aa771c] text-red-950 font-bold rounded-xl hover:brightness-110 shadow-lg uppercase tracking-widest transition">Gửi Xác Nhận</button>
                     </form>
                 </div>
             </div>
- 
+        </section>
+
+        <section class="py-20 px-6 text-center" data-aos="fade-up">
+            <div class="max-w-2xl mx-auto"><div class="rounded-3xl overflow-hidden border-4 border-gold shadow-2xl mb-8 transform rotate-1 hover:rotate-0 transition duration-700"><img src="thankyou.jpg" class="w-full h-auto" onerror="this.src='https://via.placeholder.com/600x400?text=THANK+YOU'"></div><h2 class="font-wedding text-6xl text-gold mb-4">Trân trọng cảm ơn!</h2><p class="text-xl text-yellow-100 font-serif italic">"Sự hiện diện của bạn là món quà ý nghĩa nhất đối với chúng tôi."</p></div>
+        </section>
+        <footer class="py-10 text-center text-[10px] text-gold/30 uppercase tracking-[0.5em]">2026 • Vinh Phúc & Diệu Linh</footer>
+    </div>
+
+    <audio id="weddingMusic" loop><source src="mywedding.mp3" type="audio/mpeg"></audio>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date("2026-04-15T10:30:00").getTime();
+            const now = new Date().getTime();
+            const gap = weddingDate - now;
+            if (gap > 0) {
+                const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+                const d = Math.floor(gap / day);
+                const h = Math.floor((gap % day) / hour);
+                const m = Math.floor((gap % hour) / minute);
+                const s = Math.floor((gap % minute) / second);
+                const daysEls = document.querySelectorAll('#days');
+                const hoursEls = document.querySelectorAll('#hours');
+                const minutesEls = document.querySelectorAll('#minutes');
+                const secondsEls = document.querySelectorAll('#seconds');
+                daysEls.forEach(el => el.innerText = d);
+                hoursEls.forEach(el => el.innerText = h);
+                minutesEls.forEach(el => el.innerText = m);
+                secondsEls.forEach(el => el.innerText = s);
+            }
+        }
+        setInterval(updateCountdown, 1000); updateCountdown();
+
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-fall'); heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 4 + 4 + 's';
+                heart.style.fontSize = Math.random() * 15 + 10 + 'px';
+                heart.style.opacity = Math.random();
+                container.appendChild(heart);
+            }
+        }
+
+        function openWedding() {
+            document.getElementById('weddingMusic').play().catch(() => {});
+            document.getElementById('btn-container').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('btn-container').style.display = 'none';
+                document.getElementById('door-left').classList.add('door-open-left');
+                document.getElementById('door-right').classList.add('door-open-right');
+                document.getElementById('main-content').classList.remove('opacity-0');
+                document.getElementById('door-overlay').style.pointerEvents = 'none';
+                setTimeout(() => { AOS.init({ duration: 1000, once: true }); createHearts(); }, 800);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
