@@ -18,13 +18,12 @@
         
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-color: var(--red-bg); 
-            color: #fff; 
-            overflow-x: hidden;
+            background-color: var(--red-bg); color: #fff; overflow-x: hidden;
             background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- FONTS & COLORS --- */
+        /* --- FONTS --- */
         .font-wedding { font-family: 'Alex Brush', cursive; line-height: 1.1; } 
         .font-serif { font-family: 'Playfair Display', serif; }
         .text-gold { 
@@ -55,6 +54,24 @@
         .btn-open { padding: 14px 40px; border-radius: 50px; background: linear-gradient(to right, #aa771c, #ffd700); border: 2px solid #fff; color: #780000; font-weight: bold; font-size: 16px; cursor: pointer; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
+        /* --- MUSIC CONTROL (Đĩa than quay) --- */
+        #music-control {
+            position: fixed; bottom: 20px; left: 20px; z-index: 9900;
+            width: 45px; height: 45px; background: rgba(0,0,0,0.6); border: 1px solid #d4af37;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; transition: opacity 1s; pointer-events: auto;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        .spin-animation { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* --- SCROLL HINT (Mũi tên cuộn) --- */
+        .scroll-hint {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            animation: bounce 2s infinite; z-index: 10; opacity: 0.8;
+        }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translateX(-50%) translateY(0);} 40% {transform:translateX(-50%) translateY(-10px);} 60% {transform:translateX(-50%) translateY(-5px);} }
+
         /* --- TIM RƠI ĐỌNG ĐÁY --- */
         .heart-fall { 
             position: fixed; top: -5vh; z-index: 50; color: #ff4d4d; pointer-events: none; 
@@ -63,8 +80,8 @@
         }
         @keyframes fallAndPile {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            70% { transform: translateY(var(--stop-y)) rotate(var(--rot)); opacity: 1; } /* Rơi xuống đáy */
-            90% { transform: translateY(var(--stop-y)) rotate(var(--rot)); opacity: 1; } /* Đọng lại */
+            75% { transform: translateY(var(--stop-y)) rotate(var(--rot)); opacity: 1; } /* Rơi xuống đáy */
+            95% { transform: translateY(var(--stop-y)) rotate(var(--rot)); opacity: 1; } /* Đọng lại */
             100% { transform: translateY(var(--stop-y)) rotate(var(--rot)); opacity: 0; } /* Biến mất */
         }
 
@@ -81,7 +98,7 @@
         .qr-card { background: #fff; padding: 12px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer; transition: 0.2s; position: relative; }
         .qr-card:active { transform: scale(0.95); background: #f0f0f0; }
         .qr-img-wrapper { width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; background: #f9f9f9; border: 1px solid #eee; }
-        .copy-alert { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 10px; opacity: 0; pointer-events: none; transition: 0.3s; width: 80%; text-align: center; }
+        .copy-alert { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 10px; opacity: 0; pointer-events: none; transition: 0.3s; width: 80%; text-align: center; z-index: 10; }
         .qr-card.copied .copy-alert { opacity: 1; }
 
         /* --- OTHERS --- */
@@ -106,6 +123,10 @@
         </div>
     </div>
 
+    <div id="music-control" onclick="toggleMusic()">
+        <svg id="music-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    </div>
+
     <div id="hearts-container"></div>
 
     <div id="main-content" class="opacity-0 transition-opacity duration-1000 overflow-hidden">
@@ -118,6 +139,10 @@
                     <img src="anhbia.png" class="w-full h-full object-cover rounded-t-full brightness-95" onerror="this.src='https://via.placeholder.com/400x600'">
                 </div>
                 <p class="mt-8 text-2xl font-serif text-white border-b border-gold/60 inline-block px-8 pb-2">15 . 04 . 2026</p>
+            </div>
+            
+            <div class="scroll-hint text-white/70">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
             </div>
         </section>
 
@@ -203,27 +228,21 @@
         <section class="py-16 px-4 text-center" data-aos="fade-up">
             <h2 class="font-wedding text-5xl text-gold mb-8">Vị Trí Bản Đồ</h2>
             <div class="rounded-2xl overflow-hidden border-2 border-gold h-72 shadow-2xl max-w-4xl mx-auto bg-gray-200">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.452632298758!2d108.0776733!3d15.8544141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awxqFuZw!5e0!3m2!1svi!2s!4v1707240000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.632289945244!2d108.08329237583647!3d15.908077984762268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142079093e387dd%3A0xc3c94f7287739e4e!2zTmjDoCBIw6BuZyBUaOG6o28gU8awxqFuZw!5e0!3m2!1svi!2s!4v1709280000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://maps.app.goo.gl/XXXXXXX" target="_blank" class="block mt-4 text-yellow-200 underline text-sm">Xem trên Google Maps</a>
+            <a href="https://maps.app.goo.gl/9QZ5Z9Z9Z9Z9Z9Z9" target="_blank" class="block mt-4 text-yellow-200 underline text-sm">Mở trên Google Maps</a>
         </section>
 
-        <section class="py-16 px-4" data-aos="fade-up">
+        <section class="py-12 px-4" data-aos="fade-up">
             <div class="max-w-xs mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center shadow-xl">
                 <h3 class="font-serif text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-white/10 pb-4">Tháng 4 / 2026</h3>
                 <div class="grid grid-cols-7 gap-2 text-[11px] text-gray-100">
                     <div class="text-gold font-bold">T2</div><div class="text-gold font-bold">T3</div><div class="text-gold font-bold">T4</div><div class="text-gold font-bold">T5</div><div class="text-gold font-bold">T6</div><div class="text-gold font-bold">T7</div><div class="text-red-400 font-bold">CN</div>
                     
                     <div></div><div></div><div class="p-2">1</div><div class="p-2">2</div><div class="p-2">3</div><div class="p-2">4</div><div class="p-2">5</div>
-                    
                     <div class="p-2">6</div><div class="p-2">7</div><div class="p-2">8</div><div class="p-2">9</div><div class="p-2">10</div><div class="p-2">11</div><div class="p-2">12</div>
-                    
-                    <div class="p-2">13</div><div class="p-2">14</div>
-                    <div class="p-2 active-day">15<span class="heart-mark">❤️</span></div>
-                    <div class="p-2">16</div><div class="p-2">17</div><div class="p-2">18</div><div class="p-2">19</div>
-                    
+                    <div class="p-2">13</div><div class="p-2">14</div><div class="p-2 active-day">15<span class="heart-mark">❤️</span></div><div class="p-2">16</div><div class="p-2">17</div><div class="p-2">18</div><div class="p-2">19</div>
                     <div class="p-2">20</div><div class="p-2">21</div><div class="p-2">22</div><div class="p-2">23</div><div class="p-2">24</div><div class="p-2">25</div><div class="p-2">26</div>
-                    
                     <div class="p-2">27</div><div class="p-2">28</div><div class="p-2">29</div><div class="p-2">30</div>
                 </div>
             </div>
@@ -233,9 +252,7 @@
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="font-wedding text-5xl text-gold mb-10">Phim Cưới</h2>
                 <div class="video-frame aspect-video bg-black relative">
-                    <video id="weddingVideo" muted loop playsinline class="w-full h-full object-cover opacity-90">
-                        <source src="video.mp4" type="video/mp4">
-                    </video>
+                    <video id="weddingVideo" muted loop playsinline class="w-full h-full object-cover opacity-90"><source src="video.mp4" type="video/mp4"></video>
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <div class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-black/20 backdrop-blur-sm">
                             <div class="ml-1 border-t-8 border-t-transparent border-l-[14px] border-l-white border-b-8 border-b-transparent"></div>
@@ -316,12 +333,25 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        const music = document.getElementById('weddingMusic');
+        const musicBtn = document.getElementById('music-control');
+        let isMusicPlaying = false;
+
         function openWedding() {
-            document.getElementById('weddingMusic').play().catch(() => {});
-            document.getElementById('btn-container').style.display = 'none';
+            music.volume = 0.5;
+            music.play().then(() => {
+                isMusicPlaying = true;
+                musicBtn.classList.add('spin-animation');
+            }).catch(() => {});
+
+            document.getElementById('btn-container').style.opacity = '0';
             document.getElementById('door-left').classList.add('door-open-left');
             document.getElementById('door-right').classList.add('door-open-right');
             document.getElementById('main-content').classList.remove('opacity-0');
+            
+            // Hiện nút nhạc
+            musicBtn.style.opacity = '1';
+
             setTimeout(() => {
                 document.getElementById('door-overlay').remove();
                 AOS.init({ duration: 1000, once: true });
@@ -330,7 +360,20 @@
             }, 1600);
         }
 
-        // --- COPY ---
+        // TOGGLE NHẠC
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                music.pause();
+                musicBtn.classList.remove('spin-animation');
+                musicBtn.style.opacity = '0.5';
+            } else {
+                music.play();
+                musicBtn.classList.add('spin-animation');
+                musicBtn.style.opacity = '1';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
         function copyText(accountNumber, element) {
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(accountNumber).then(() => {
@@ -354,7 +397,6 @@
             }
         }
 
-        // --- FORM SUBMIT ---
         const form = document.getElementById("rsvp-form");
         form.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -381,7 +423,7 @@
             });
         });
 
-        // --- TIM RƠI ĐỌNG ĐÁY ---
+        // TIM RƠI ĐỌNG LẠI
         function startHeartRain() {
             const container = document.getElementById('hearts-container');
             setInterval(() => {
@@ -394,17 +436,15 @@
                 
                 h.style.left = Math.random() * 100 + 'vw';
                 h.style.fontSize = (Math.random() * 15 + 10) + 'px';
-                h.style.setProperty('--duration', (Math.random() * 2 + 3) + 's'); // Rơi trong 3-5s
+                h.style.setProperty('--duration', (Math.random() * 2 + 3) + 's');
                 h.style.setProperty('--stop-y', stopY + 'vh');
                 h.style.setProperty('--rot', Math.random() * 360 + 'deg');
                 
                 container.appendChild(h);
-                // Xóa tim sau 8 giây (đủ thời gian rơi + đọng + mờ)
                 setTimeout(() => h.remove(), 8000);
             }, 400);
         }
 
-        // --- VIDEO & TIMER ---
         function setupVideoObserver() {
             const v = document.getElementById('weddingVideo');
             const obs = new IntersectionObserver((es) => {
