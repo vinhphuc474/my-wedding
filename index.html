@@ -3,71 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lễ Thành Hôn - Tên Chú Rể & Tên Cô Dâu</title>
+    <title>Lễ Thành Hôn - Vinh Phúc & Diệu Linh</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body { font-family: 'Quicksand', sans-serif; }
-        .font-wedding { font-family: 'Dancing Script', cursive; }
-        .bg-wedding { background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80') center/cover no-repeat; }
+        body { font-family: 'Quicksand', sans-serif; background-color: #800000; color: #fdf2f2; overflow-x: hidden; }
+        .font-wedding { font-family: 'Great Vibes', cursive; color: #d4af37; }
+        .bg-pattern { background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); }
+        .border-gold { border: 2px solid #d4af37; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
+<body class="bg-pattern">
 
-    <div class="h-screen bg-wedding flex items-center justify-center text-center p-4">
-        <div class="bg-white/70 backdrop-blur-sm p-10 rounded-full border-4 border-double border-pink-200 shadow-2xl animate-fade-in">
-            <h2 class="text-xl uppercase tracking-widest mb-4">Save the Date</h2>
-            <h1 class="text-6xl font-wedding text-pink-600 mb-2">Quốc Anh & Phương Mai</h1>
-            <p class="text-lg">06 . 02 . 2026</p>
-        </div>
-    </div>
-
-    <div class="max-w-2xl mx-auto py-20 px-6 text-center">
-        <h2 class="text-4xl font-wedding text-pink-500 mb-10">Trân trọng kính mời</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="border-r-0 md:border-r border-pink-200 pr-0 md:pr-10">
-                <h3 class="font-bold text-xl mb-2">Nhà Trai</h3>
-                <p>Địa chỉ: Quận 1, TP. Hồ Chí Minh</p>
-            </div>
-            <div>
-                <h3 class="font-bold text-xl mb-2">Nhà Gái</h3>
-                <p>Địa chỉ: Quận Hải Châu, Đà Nẵng</p>
-            </div>
-        </div>
+    <div class="min-h-screen flex flex-col items-center justify-center p-6 text-center" data-aos="fade-down" data-aos-duration="1500">
+        <img src="https://i.imgur.com/8mXQ8Zl.png" alt="Long Phung" class="w-64 mb-6 opacity-80">
+        <h1 class="text-6xl font-wedding mb-4">Vinh Phúc</h1>
+        <div class="text-4xl font-wedding">&</div>
+        <h1 class="text-6xl font-wedding mt-4">Diệu Linh</h1>
         
-        <div class="mt-16 p-8 bg-pink-50 rounded-lg shadow-inner">
-            <h3 class="text-2xl font-wedding text-pink-600 mb-4">Tiệc Cưới Tại</h3>
-            <p class="font-bold">Trung tâm Hội nghị Tiệc cưới Gem Center</p>
-            <p>12:00 PM | Thứ Sáu, ngày 06/02/2026</p>
-            <a href="https://maps.google.com" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition">Xem bản đồ</a>
+        <div class="mt-10 relative w-64 h-80 border-t-full border-2 border-yellow-500 rounded-t-full overflow-hidden shadow-2xl" data-aos="zoom-in" data-aos-delay="500">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=500" alt="Anh Cuoi" class="w-full h-full object-cover">
         </div>
     </div>
 
-    <div class="bg-white py-16 px-6 text-center">
-        <h2 class="text-3xl font-wedding text-pink-500 mb-6">Xác nhận tham dự</h2>
-        <form action="https://formspree.io/f/YOUR_ID" method="POST" class="max-w-md mx-auto space-y-4">
-            <input type="text" name="name" placeholder="Tên của bạn" class="w-full p-3 border border-stone-200 rounded" required>
-            <select name="attendance" class="w-full p-3 border border-stone-200 rounded">
-                <option value="yes">Tôi sẽ tham gia</option>
-                <option value="no">Tiếc quá, tôi không thể</option>
-            </select>
-            <button type="submit" class="w-full py-3 bg-stone-800 text-white rounded hover:bg-stone-700 transition">Gửi xác nhận</button>
-        </form>
+    <div class="py-20 px-6 text-center space-y-12">
+        <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto" data-aos="fade-right">
+            <div>
+                <p class="text-yellow-500 font-bold uppercase">Nhà Trai</p>
+                <p class="text-sm">Ông: Nguyễn Vĩnh Quảng</p>
+                <p class="text-sm">Bà: Võ Thị Hiền</p>
+            </div>
+            <div data-aos="fade-left">
+                <p class="text-yellow-500 font-bold uppercase">Nhà Gái</p>
+                <p class="text-sm">Ông: ...</p>
+                <p class="text-sm">Bà: Nguyễn Thị Liên</p>
+            </div>
+        </div>
+
+        <div data-aos="fade-up">
+            <h2 class="text-2xl uppercase tracking-widest text-yellow-500">Trân trọng báo tin lễ thành hôn</h2>
+            <p class="mt-4 italic">Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi!</p>
+        </div>
     </div>
 
-    <div class="fixed bottom-5 right-5">
-        <button id="musicBtn" class="bg-white p-3 rounded-full shadow-lg border border-pink-200">🎵</button>
-        <audio id="weddingMusic" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
+    <div class="bg-black/30 py-16 px-4 rounded-t-[50px] border-t-2 border-yellow-600">
+        <div class="max-w-md mx-auto text-center" data-aos="flip-up">
+            <h3 class="text-3xl font-wedding text-yellow-500 mb-6">Tiệc cưới được tổ chức tại</h3>
+            <div class="p-6 border-gold rounded-lg mb-6">
+                <p class="text-xl font-bold">NHÀ HÀNG HƯƠNG CAU</p>
+                <p>96 Trần Quang Khải, Quận 4, TP. HCM</p>
+                <div class="flex justify-center items-center my-4 space-x-4">
+                    <div class="text-center">
+                        <p class="text-sm uppercase">Thứ Sáu</p>
+                        <p class="text-3xl font-bold text-yellow-500">19</p>
+                        <p class="text-sm uppercase">Tháng 12</p>
+                    </div>
+                    <div class="h-10 w-[1px] bg-yellow-600"></div>
+                    <div><p class="text-2xl font-bold italic">2025</p></div>
+                </div>
+                <p class="text-lg font-bold">VÀO LÚC: 09:00</p>
+            </div>
+            <iframe class="w-full h-48 rounded-lg shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d106.7!3d10.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQyJzAwLjAiTiAxMDbCsDQyJzAwLjAiRQ!5e0!3m2!1svi!2svn!4v123456789" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
 
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="musicToggle" class="bg-yellow-600 p-4 rounded-full shadow-2xl animate-pulse">
+            <span id="musicIcon">🎵</span>
+        </button>
+    </div>
+
+    <audio id="weddingMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const btn = document.getElementById('musicBtn');
-        const audio = document.getElementById('weddingMusic');
+        AOS.init({ duration: 1200, once: false });
+
+        const music = document.getElementById('weddingMusic');
+        const btn = document.getElementById('musicToggle');
+        const icon = document.getElementById('musicIcon');
+
         btn.onclick = () => {
-            if (audio.paused) { audio.play(); btn.innerText = '⏸️'; }
-            else { audio.pause(); btn.innerText = '🎵'; }
+            if (music.paused) {
+                music.play();
+                icon.innerText = '⏸️';
+            } else {
+                music.pause();
+                icon.innerText = '🎵';
+            }
         };
     </script>
 </body>
