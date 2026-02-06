@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lễ Thành Hôn - Tên Chú Rể & Tên Cô Dâu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; }
+        .font-wedding { font-family: 'Dancing Script', cursive; }
+        .bg-wedding { background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80') center/cover no-repeat; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="h-screen bg-wedding flex items-center justify-center text-center p-4">
+        <div class="bg-white/70 backdrop-blur-sm p-10 rounded-full border-4 border-double border-pink-200 shadow-2xl animate-fade-in">
+            <h2 class="text-xl uppercase tracking-widest mb-4">Save the Date</h2>
+            <h1 class="text-6xl font-wedding text-pink-600 mb-2">Quốc Anh & Phương Mai</h1>
+            <p class="text-lg">06 . 02 . 2026</p>
+        </div>
+    </div>
+
+    <div class="max-w-2xl mx-auto py-20 px-6 text-center">
+        <h2 class="text-4xl font-wedding text-pink-500 mb-10">Trân trọng kính mời</h2>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="border-r-0 md:border-r border-pink-200 pr-0 md:pr-10">
+                <h3 class="font-bold text-xl mb-2">Nhà Trai</h3>
+                <p>Địa chỉ: Quận 1, TP. Hồ Chí Minh</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl mb-2">Nhà Gái</h3>
+                <p>Địa chỉ: Quận Hải Châu, Đà Nẵng</p>
+            </div>
+        </div>
+        
+        <div class="mt-16 p-8 bg-pink-50 rounded-lg shadow-inner">
+            <h3 class="text-2xl font-wedding text-pink-600 mb-4">Tiệc Cưới Tại</h3>
+            <p class="font-bold">Trung tâm Hội nghị Tiệc cưới Gem Center</p>
+            <p>12:00 PM | Thứ Sáu, ngày 06/02/2026</p>
+            <a href="https://maps.google.com" target="_blank" class="inline-block mt-4 px-6 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition">Xem bản đồ</a>
+        </div>
+    </div>
+
+    <div class="bg-white py-16 px-6 text-center">
+        <h2 class="text-3xl font-wedding text-pink-500 mb-6">Xác nhận tham dự</h2>
+        <form action="https://formspree.io/f/YOUR_ID" method="POST" class="max-w-md mx-auto space-y-4">
+            <input type="text" name="name" placeholder="Tên của bạn" class="w-full p-3 border border-stone-200 rounded" required>
+            <select name="attendance" class="w-full p-3 border border-stone-200 rounded">
+                <option value="yes">Tôi sẽ tham gia</option>
+                <option value="no">Tiếc quá, tôi không thể</option>
+            </select>
+            <button type="submit" class="w-full py-3 bg-stone-800 text-white rounded hover:bg-stone-700 transition">Gửi xác nhận</button>
+        </form>
+    </div>
+
+    <div class="fixed bottom-5 right-5">
+        <button id="musicBtn" class="bg-white p-3 rounded-full shadow-lg border border-pink-200">🎵</button>
+        <audio id="weddingMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const btn = document.getElementById('musicBtn');
+        const audio = document.getElementById('weddingMusic');
+        btn.onclick = () => {
+            if (audio.paused) { audio.play(); btn.innerText = '⏸️'; }
+            else { audio.pause(); btn.innerText = '🎵'; }
+        };
+    </script>
+</body>
+</html>
