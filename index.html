@@ -8,215 +8,111 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Cấu hình chung */
         body { font-family: 'Quicksand', sans-serif; background-color: #7a0000; color: #fff; overflow-x: hidden; }
-        
-        /* Font chữ nghệ thuật */
         .font-wedding { font-family: 'Great Vibes', cursive; }
         .font-elegant { font-family: 'Pinyon Script', cursive; }
-        
-        /* Hiệu ứng chữ vàng kim loại (Gold Gradient) */
         .text-gold {
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;
         }
-
-        /* Nền họa tiết sang trọng */
-        .bg-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
-            background-attachment: fixed;
-        }
-
-        /* Màn hình chào (Overlay) */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #7a0000; display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; z-index: 9999; transition: 0.8s;
-        }
-
-        /* Khung ảnh vòm (Arch) */
-        .arch-frame {
-            border-radius: 200px 200px 0 0;
-            border: 4px solid #d4af37;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        .bg-pattern { background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png'); background-attachment: fixed; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #7a0000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: 0.8s; }
+        .arch-frame { border-radius: 200px 200px 0 0; border: 4px solid #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body class="bg-pattern">
 
     <div id="overlay">
         <div class="text-center animate-pulse">
-            <img src="https://i.imgur.com/8mXQ8Zl.png" class="w-32 mx-auto mb-4 invert opacity-60" alt="Long Phung">
+            <img src="https://i.imgur.com/8mXQ8Zl.png" class="w-32 mx-auto mb-4 invert opacity-60">
             <h2 class="font-wedding text-5xl text-gold mb-8">Vinh Phúc & Diệu Linh</h2>
         </div>
-        <button onclick="startInvitation()" class="group relative px-8 py-3 bg-transparent border-2 border-yellow-500 text-yellow-500 font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all duration-300">
-            <span class="mr-2">💌</span> MỞ THIỆP CƯỚI
+        <button onclick="startInvitation()" class="px-8 py-3 border-2 border-yellow-500 text-yellow-500 font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all">
+            💌 MỞ THIỆP CƯỚI
         </button>
     </div>
 
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
         
-        <div class="min-h-screen flex flex-col items-center pt-10 px-4 text-center relative">
-            <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
-                <img src="https://i.imgur.com/8mXQ8Zl.png" class="w-full h-full object-contain" alt="Background">
-            </div>
-
-            <div data-aos="fade-down" data-aos-duration="1500" class="z-10">
-                <div class="flex justify-center items-center gap-4 mb-2">
-                    <img src="https://i.imgur.com/8mXQ8Zl.png" class="w-20 invert opacity-80" alt="Long Phung Icon">
-                </div>
-                <h1 class="font-wedding text-6xl md:text-8xl text-gold leading-tight">Vinh Phúc</h1>
+        <div class="min-h-screen flex flex-col items-center pt-10 px-4 text-center">
+            <div data-aos="fade-down" data-aos-duration="1500">
+                <img src="https://i.imgur.com/8mXQ8Zl.png" class="w-20 mx-auto invert opacity-80 mb-4">
+                <h1 class="font-wedding text-6xl md:text-8xl text-gold">Vinh Phúc</h1>
                 <p class="font-elegant text-4xl text-yellow-200 my-2">&</p>
-                <h1 class="font-wedding text-6xl md:text-8xl text-gold leading-tight mb-8">Diệu Linh</h1>
+                <h1 class="font-wedding text-6xl md:text-8xl text-gold mb-8">Diệu Linh</h1>
             </div>
 
-            <div class="relative w-72 h-96 arch-frame overflow-hidden bg-black" data-aos="zoom-in" data-aos-delay="500">
-                <img src="image_656162.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Ảnh Cưới">
+            <div class="relative w-72 h-96 arch-frame overflow-hidden bg-black" data-aos="zoom-in">
+                <img src="image_656162.jpg" class="w-full h-full object-cover shadow-2xl">
             </div>
-            
-            <p class="mt-8 font-elegant text-2xl text-yellow-100" data-aos="fade-up">Save the Date</p>
-            <p class="text-3xl font-bold text-gold" data-aos="fade-up">19 . 12 . 2025</p>
+            <p class="mt-8 font-elegant text-3xl text-gold" data-aos="fade-up">19 . 12 . 2025</p>
         </div>
 
-        <div class="py-16 px-4 bg-black/20">
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
-                <div data-aos="fade-right" class="border-b md:border-b-0 md:border-r border-yellow-500/30 pb-8 md:pb-0 md:pr-8">
-                    <h3 class="text-yellow-500 font-bold text-xl uppercase tracking-widest mb-6">Nhà Trai</h3>
-                    <div class="space-y-2 text-lg">
-                        <p>Ông: <span class="font-bold text-xl">Nguyễn Vĩnh Quảng</span></p>
-                        <p>Bà: <span class="font-bold text-xl">Võ Thị Hiền</span></p>
-                        <p class="text-sm italic text-gray-300 mt-2">Đ/c: Ngọc Thạch, Hà Nha, Đà Nẵng</p>
-                    </div>
-                    <div class="mt-8">
-                        <p class="text-sm uppercase text-gray-400">Trưởng nam</p>
-                        <p class="font-wedding text-5xl text-gold mt-2">Vinh Phúc</p>
-                    </div>
+        <div class="py-20 px-4 max-w-5xl mx-auto">
+            <h2 class="font-wedding text-5xl text-center text-gold mb-12" data-aos="fade-up">Hành Trình Hạnh Phúc</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-6">
+                    <img src="anh1.jpg" class="rounded-lg shadow-lg w-full" data-aos="fade-right">
+                    <img src="anh2.jpg" class="rounded-lg shadow-lg w-full" data-aos="fade-right" data-aos-delay="200">
                 </div>
-
-                <div data-aos="fade-left" class="md:pl-8">
-                    <h3 class="text-yellow-500 font-bold text-xl uppercase tracking-widest mb-6">Nhà Gái</h3>
-                    <div class="space-y-2 text-lg">
-                        <p class="opacity-50">Ông: ........................</p>
-                        <p>Bà: <span class="font-bold text-xl">Nguyễn Thị Liên</span></p>
-                        <p class="text-sm italic text-gray-300 mt-2">Đ/c: Thái Chấn Sơn, Thượng Đức, Đà Nẵng</p>
-                    </div>
-                    <div class="mt-8">
-                        <p class="text-sm uppercase text-gray-400">Út nữ</p>
-                        <p class="font-wedding text-5xl text-gold mt-2">Diệu Linh</p>
-                    </div>
+                <div class="space-y-6 md:pt-12">
+                    <img src="anh3.jpg" class="rounded-lg shadow-lg w-full" data-aos="fade-left">
+                    <img src="anh4.jpg" class="rounded-lg shadow-lg w-full" data-aos="fade-left" data-aos-delay="200">
                 </div>
+            </div>
+            <div class="mt-6">
+                <img src="anh5.jpg" class="rounded-lg shadow-lg w-full max-h-[600px] object-cover" data-aos="zoom-in">
             </div>
         </div>
 
         <div class="py-16 px-4">
-            <div class="max-w-2xl mx-auto text-center border-2 border-yellow-600 rounded-3xl p-8 relative bg-red-900/40" data-aos="zoom-in-up">
-                <div class="absolute -top-3 -left-3 text-4xl text-yellow-500">❧</div>
-                <div class="absolute -bottom-3 -right-3 text-4xl text-yellow-500">❧</div>
-
-                <h2 class="font-elegant text-4xl text-gold mb-2">Lễ Thành Hôn</h2>
-                <p class="mb-6">Hôn lễ được cử hành tại <span class="font-bold text-yellow-400">TƯ GIA</span></p>
-                
-                <div class="flex justify-center items-center gap-6 mb-8 text-yellow-100">
-                    <div class="border-r border-yellow-500 pr-6">
-                        <p class="text-sm uppercase">Thứ Sáu</p>
-                        <p class="text-sm uppercase">09:00 AM</p>
-                    </div>
-                    <div class="text-6xl font-bold text-gold font-serif">19</div>
-                    <div class="border-l border-yellow-500 pl-6">
-                        <p class="text-sm uppercase">Tháng 12</p>
-                        <p class="text-sm uppercase">Năm 2025</p>
-                    </div>
-                </div>
-
-                <div class="w-full h-px bg-yellow-500/50 my-6"></div>
-
+            <div class="max-w-2xl mx-auto text-center border-2 border-yellow-600 rounded-3xl p-8 bg-red-900/40 shadow-2xl" data-aos="zoom-in">
                 <h2 class="font-elegant text-4xl text-gold mb-2">Tiệc Rượu Chung Vui</h2>
-                <p class="uppercase font-bold text-xl mb-1">Nhà Hàng Hương Cau</p>
-                <p class="text-sm text-gray-300 mb-6">96 Trần Quang Khải, Quận 4, TP. Hồ Chí Minh</p>
-
-                <div class="rounded-xl overflow-hidden border border-yellow-500 shadow-lg h-64">
+                <p class="font-bold text-2xl uppercase text-yellow-500">Nhà Hàng Thảo Sương</p>
+                <p class="text-sm text-gray-300 mb-6">Ngã 4 Ái Nghĩa, Đại Lộc, Quảng Nam</p>
+                
+                <div class="rounded-xl overflow-hidden h-72 border border-yellow-500 shadow-inner mb-6">
                     <iframe 
-                        src="https://www.google.com/maps?q=96+Trần+Quang+Khải,+Phường+Tân+Định,+Quận+4,+Hồ+Chí+Minh&output=embed" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m11!1m3!1d1136.2163901416327!2d107.9954002821102!3d15.85441920000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awxqFuZw!5e1!3m2!1svi!2s!4v1715876000000!5m2!1svi!2s" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
-                <a href="https://maps.app.goo.gl/xxx" target="_blank" class="inline-block mt-4 text-yellow-400 underline hover:text-white">Xem bản đồ lớn hơn</a>
+                <a href="https://maps.app.goo.gl/uXmR8uL1n3S5M9G5A" target="_blank" class="bg-yellow-600 text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition">Chỉ đường trên Google Maps</a>
             </div>
         </div>
 
-        <div class="py-16 px-6 bg-black/40">
-            <h2 class="font-wedding text-5xl text-center text-gold mb-10" data-aos="fade-up">Gửi Lời Chúc & Mừng Cưới</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-16">
-                <div class="bg-white p-4 rounded-xl text-center text-gray-800 transform hover:-translate-y-2 transition duration-300" data-aos="flip-left">
-                    <p class="font-bold mb-2 text-red-800">Mừng Cưới Chú Rể</p>
-                    <img src="QR1.png" class="w-48 mx-auto" alt="QR Vinh Phúc">
-                    <p class="mt-2 text-sm">Techcombank - Nguyễn Vĩnh Phúc</p>
+        <div class="py-20 px-6 bg-black/40 text-center">
+            <h2 class="font-wedding text-5xl text-gold mb-12" data-aos="fade-up">Gửi Lời Chúc & Mừng Cưới</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition" data-aos="flip-left">
+                    <p class="font-bold text-xl text-red-800 mb-4">Chú Rể Vinh Phúc</p>
+                    <img src="QR1.png" class="w-56 mx-auto rounded-lg" alt="QR Vinh Phúc">
                 </div>
-                <div class="bg-white p-4 rounded-xl text-center text-gray-800 transform hover:-translate-y-2 transition duration-300" data-aos="flip-right">
-                    <p class="font-bold mb-2 text-red-800">Mừng Cưới Cô Dâu</p>
-                    <img src="QR2.png" class="w-48 mx-auto" alt="QR Diệu Linh">
-                    <p class="mt-2 text-sm">VPbank - Nguyễn Thị Diệu Linh</p>
+                <div class="bg-white p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition" data-aos="flip-right">
+                    <p class="font-bold text-xl text-red-800 mb-4">Cô Dâu Diệu Linh</p>
+                    <img src="QR2.png" class="w-56 mx-auto rounded-lg" alt="QR Diệu Linh">
                 </div>
-            </div>
-
-            <div class="max-w-lg mx-auto bg-red-900/80 p-8 rounded-2xl border border-yellow-600 shadow-2xl" data-aos="fade-up">
-                <h3 class="text-2xl font-bold text-center text-yellow-400 mb-6">Xác Nhận Tham Dự</h3>
-                <form action="https://formspree.io/f/nguyenvinhphuc474@gmail.com" method="POST" class="space-y-4">
-                    <div>
-                        <input type="text" name="name" placeholder="Tên Khách Mời" class="w-full p-3 rounded bg-red-950/50 border border-yellow-700 text-white focus:outline-none focus:border-yellow-400" required>
-                    </div>
-                    <div>
-                        <select name="attendance" class="w-full p-3 rounded bg-red-950/50 border border-yellow-700 text-white focus:outline-none focus:border-yellow-400">
-                            <option value="Tham dự">Dạ, mình sẽ tham dự</option>
-                            <option value="Có thể">Có thể tham dự</option>
-                            <option value="Không tham dự">Rất tiếc mình bận rồi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <textarea name="message" placeholder="Lời chúc gửi đến hai bạn..." rows="3" class="w-full p-3 rounded bg-red-950/50 border border-yellow-700 text-white focus:outline-none focus:border-yellow-400"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-red-900 font-bold rounded-lg hover:brightness-110 transition shadow-lg">
-                        GỬI XÁC NHẬN
-                    </button>
-                </form>
             </div>
         </div>
 
-        <div class="text-center py-8 text-yellow-500/60 text-sm">
-            <p>Made with ❤️ for Vinh Phúc & Diệu Linh</p>
+        <div class="text-center py-10 opacity-50 text-sm">
+            <p>© 2025 Vinh Phúc & Diệu Linh Wedding</p>
         </div>
     </div>
 
-    <audio id="weddingMusic" loop>
-        <source src="mywedding.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="weddingMusic" loop><source src="mywedding.mp3" type="audio/mpeg"></audio>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         function startInvitation() {
-            var audio = document.getElementById('weddingMusic');
-            // Cố gắng phát nhạc
-            audio.play().catch(function(error) {
-                console.log("Trình duyệt chặn phát nhạc tự động: " + error);
-            });
+            const audio = document.getElementById('weddingMusic');
+            audio.play().catch(e => console.log("Yêu cầu tương tác để phát nhạc"));
             
-            // Hiệu ứng chuyển cảnh
             document.getElementById('overlay').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('main-content').classList.remove('opacity-0');
-                document.body.style.overflow = 'auto'; // Cho phép cuộn
-                
-                // Khởi tạo hiệu ứng scroll (AOS)
-                AOS.init({
-                    duration: 1200,
-                    once: false,
-                    mirror: true
-                });
+                AOS.init({ duration: 1000, once: true });
             }, 800);
         }
     </script>
