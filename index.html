@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#780000"> <title>Lễ Thành Hôn | Vĩnh Phúc & Diệu Linh</title>
+    <meta name="theme-color" content="#780000"> 
+    <title>Lễ Thành Hôn | Vĩnh Phúc & Diệu Linh</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,7 +25,7 @@
             font-family: 'Montserrat', sans-serif; 
             background-color: var(--red-bg); 
             color: #fff; 
-            overflow-x: hidden; /* Chặn cuộn ngang */
+            overflow-x: hidden; 
             background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
             -webkit-tap-highlight-color: transparent;
         }
@@ -41,9 +42,9 @@
             filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
         }
 
-        /* --- HỆ THỐNG CỬA (FIX LỖI MOBILE) --- */
+        /* --- HỆ THỐNG CỬA --- */
         #door-overlay { 
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; /* dvh fix thanh địa chỉ */
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100dvh; 
             z-index: 9999; display: flex; 
         }
         .door { 
@@ -99,12 +100,12 @@
         }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translateX(-50%) translateY(0);} 40% {transform:translateX(-50%) translateY(-10px);} 60% {transform:translateX(-50%) translateY(-5px);} }
 
-        /* --- QR CODES EQUAL SIZE --- */
+        /* --- QR CODES --- */
         .qr-card { 
             background: #fff; padding: 12px; border-radius: 12px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.3); cursor: pointer; transition: 0.2s; 
             position: relative; overflow: hidden;
-            aspect-ratio: 1 / 1.15; /* Tỉ lệ chuẩn để bằng nhau */
+            aspect-ratio: 1 / 1.15;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         .qr-card:active { transform: scale(0.96); }
@@ -122,7 +123,7 @@
         }
         .qr-card.copied .copy-alert { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 
-        /* --- HIỆU ỨNG KHÁC --- */
+        /* --- THIỆP MỜI --- */
         .invitation-card { 
             background-color: var(--cream); color: #4a4a4a; border-radius: 8px; 
             box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; padding: 10px; border: 1px solid #d4af37; 
@@ -141,7 +142,6 @@
         .video-frame { border: 3px solid #d4af37; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
         .arch-photo { border-radius: 500px 500px 0 0; border: 3px solid #aa771c; padding: 4px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); }
 
-        /* Tim rơi nhẹ nhàng */
         .heart-fall { 
             position: fixed; top: -5vh; z-index: 40; color: #ff4d4d; pointer-events: none; 
             will-change: transform; animation: fallAndFade var(--duration) linear forwards; 
@@ -174,7 +174,11 @@
         <section class="min-h-[100dvh] flex flex-col justify-center items-center py-12 px-4 text-center relative">
             <div data-aos="fade-down" data-aos-duration="1500">
                 <p class="uppercase tracking-[0.3em] text-[10px] text-yellow-200 mb-6 animate-pulse">Save the Date</p>
-                <h1 class="font-wedding text-7xl md:text-9xl text-gold mb-8 leading-none">Vĩnh Phúc <br> <span class="text-white text-4xl">&</span> <br> Diệu Linh</h1>
+                <h1 class="font-wedding text-7xl md:text-9xl text-gold mb-8 leading-none">
+                    <span class="whitespace-nowrap">Vĩnh Phúc</span> <br> 
+                    <span class="text-white text-4xl">&</span> <br> 
+                    <span class="whitespace-nowrap">Diệu Linh</span>
+                </h1>
                 
                 <div class="mx-auto w-72 h-[420px] md:w-80 md:h-[500px] arch-photo shadow-2xl">
                     <img src="anhbia.png" class="w-full h-full object-cover rounded-t-full brightness-90 contrast-110" onerror="this.src='https://via.placeholder.com/400x600?text=Anh+Bia'">
@@ -204,7 +208,7 @@
                          <div class="absolute inset-0 bg-gold/10 group-hover:bg-transparent transition"></div>
                         <img src="chure.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" onerror="this.src='https://via.placeholder.com/300?text=Chu+Re'">
                     </div>
-                    <h3 class="font-serif text-3xl font-bold text-gold mb-2">Nguyễn Vĩnh Phúc</h3>
+                    <h3 class="font-serif text-3xl font-bold text-gold mb-2 whitespace-nowrap">Nguyễn Vĩnh Phúc</h3>
                     <p class="text-gray-300 italic px-4 text-sm">"Người luôn nắm chặt tay em bước qua mọi khó khăn."</p>
                 </div>
                 <div class="group">
@@ -212,7 +216,7 @@
                         <div class="absolute inset-0 bg-gold/10 group-hover:bg-transparent transition"></div>
                         <img src="codau.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" onerror="this.src='https://via.placeholder.com/300?text=Co+Dau'">
                     </div>
-                    <h3 class="font-serif text-3xl font-bold text-gold mb-2">Nguyễn Thị Diệu Linh</h3>
+                    <h3 class="font-serif text-3xl font-bold text-gold mb-2 whitespace-nowrap">Nguyễn Thị Diệu Linh</h3>
                     <p class="text-gray-300 italic px-4 text-sm">"Bông hoa rực rỡ nhất trong khu vườn của cuộc đời anh."</p>
                 </div>
             </div>
@@ -225,12 +229,12 @@
                         <div class="absolute left-1/2 top-2 h-full w-[1px] bg-gold/40 transform -translate-x-1/2"></div>
                         <div class="px-1">
                             <b class="uppercase text-[#bd0000] block mb-2 tracking-widest text-[10px]">Nhà Trai</b>
-                            <p class="font-bold text-gray-800 uppercase">Ông Nguyễn Vĩnh Quảng</p>
-                            <p class="font-bold text-gray-800 uppercase">Bà Võ Thị Hiền</p>
+                            <p class="font-bold text-gray-800 uppercase whitespace-nowrap">Ông Nguyễn Vĩnh Quảng</p>
+                            <p class="font-bold text-gray-800 uppercase whitespace-nowrap">Bà Võ Thị Hiền</p>
                         </div>
                         <div class="px-1">
                             <b class="uppercase text-[#bd0000] block mb-2 tracking-widest text-[10px]">Nhà Gái</b>
-                            <p class="font-bold text-gray-800 uppercase">Bà Nguyễn Thị Liên</p>
+                            <p class="font-bold text-gray-800 uppercase whitespace-nowrap">Bà Nguyễn Thị Liên</p>
                             <p class="font-bold text-gray-800 opacity-0">...</p>
                         </div>
                     </div>
@@ -239,9 +243,9 @@
                         <h3 class="font-serif uppercase font-bold text-gray-600 tracking-[0.2em] mb-4 text-xs">Trân trọng kính mời</h3>
                         <p class="font-bold text-[#b8860b] text-lg mb-4 uppercase">Bạn và người thương</p>
                         
-                        <h2 class="font-wedding text-5xl text-[#bd0000] mb-1 leading-none">Vĩnh Phúc</h2>
+                        <h2 class="font-wedding text-5xl text-[#bd0000] mb-1 leading-none whitespace-nowrap">Vĩnh Phúc</h2>
                         <div class="text-xl text-red-400">&</div>
-                        <h2 class="font-wedding text-5xl text-[#bd0000] mb-6 leading-none">Diệu Linh</h2>
+                        <h2 class="font-wedding text-5xl text-[#bd0000] mb-6 leading-none whitespace-nowrap">Diệu Linh</h2>
                         
                         <div class="flex items-center justify-center gap-6 border-y border-gold/40 py-4 mb-6 max-w-xs mx-auto bg-white/50">
                             <div class="text-right">
@@ -272,6 +276,14 @@
             </div>
         </section>
 
+        <section class="py-12 px-4 text-center" data-aos="fade-up">
+            <h2 class="font-wedding text-5xl text-gold mb-6">Vị Trí Bản Đồ</h2>
+            <div class="rounded-2xl overflow-hidden border-2 border-gold h-72 shadow-2xl max-w-4xl mx-auto bg-gray-200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.525547377519!2d107.99348550000001!3d15.8544192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p class="text-[10px] mt-2 opacity-50 uppercase tracking-widest text-gray-300">Nhà Hàng Thảo Sương</p>
+        </section>
+
         <section class="py-16 px-4" data-aos="fade-up">
             <div class="max-w-xs mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center shadow-xl">
                 <h3 class="font-serif text-xl font-bold mb-6 text-gold uppercase tracking-widest border-b border-white/10 pb-4">Tháng 4 / 2026</h3>
@@ -300,13 +312,6 @@
                     </div>
                 </div>
                 <p class="text-[9px] mt-4 opacity-50 uppercase tracking-widest text-gray-300">(Chạm vào video để bật/tắt tiếng)</p>
-            </div>
-        </section>
-
-        <section class="py-16 px-4 text-center" data-aos="fade-up">
-            <h2 class="font-wedding text-5xl text-gold mb-8">Vị Trí Bản Đồ</h2>
-            <div class="rounded-2xl overflow-hidden border-2 border-gold h-72 shadow-2xl max-w-4xl mx-auto bg-gray-200">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.525547377519!2d107.99348550000001!3d15.8544192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141fed4609bbe75%3A0x30ff3da63fec2068!2zTmjDoCBIw6BuZyBUaeG7h2MgQ8aw4bubaSBUaOG6o28gU8awxqFuZw!5e0!3m2!1svi!2s!4v1707234600000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
 
@@ -392,24 +397,20 @@
 
         // 1. MỞ CỬA & KHỞI TẠO
         function openWedding() {
-            // Chạy nhạc
             music.volume = 0.5;
             music.play().then(() => {
                 isMusicPlaying = true;
                 musicBtn.classList.add('music-spin');
             }).catch(() => { console.log("Auto-play blocked"); });
 
-            // Hiệu ứng cửa
             document.getElementById('btn-container').style.opacity = '0';
             document.getElementById('door-left').classList.add('door-open-left');
             document.getElementById('door-right').classList.add('door-open-right');
             document.getElementById('main-content').classList.remove('opacity-0');
             
-            // Hiện control nhạc & nhắc nhở cuộn
             musicBtn.style.opacity = '1';
             setTimeout(() => { scrollHint.style.opacity = '1'; }, 2000);
 
-            // Xóa overlay & Start hiệu ứng
             setTimeout(() => {
                 document.getElementById('door-overlay').style.pointerEvents = 'none';
                 AOS.init({ duration: 1000, once: true });
@@ -432,7 +433,7 @@
             isMusicPlaying = !isMusicPlaying;
         }
 
-        // 3. COPY AN TOÀN (Fix lỗi Zalo)
+        // 3. COPY AN TOÀN
         function safeCopy(text, element) {
             const fallbackCopy = () => {
                 const textArea = document.createElement("textarea");
@@ -463,33 +464,26 @@
             setTimeout(() => element.classList.remove('copied'), 2000);
         }
 
-        // 4. MƯA TIM (Tối ưu performance - Tránh xung đột)
+        // 4. MƯA TIM
         function startHeartRain() {
             const container = document.getElementById('hearts-container');
             const hearts = ['❤️', '💕', '💖'];
-            
-            // Dùng Interval nhưng kiểm soát số lượng DOM
             setInterval(() => {
-                if(document.hidden) return; // Tab ẩn thì không chạy
-                
+                if(document.hidden) return;
                 const h = document.createElement('div');
                 h.className = 'heart-fall'; 
                 h.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-                
                 const size = Math.random() * 15 + 10;
                 h.style.left = Math.random() * 100 + 'vw';
                 h.style.fontSize = size + 'px';
                 h.style.setProperty('--duration', (Math.random() * 3 + 5) + 's');
                 h.style.setProperty('--rot', Math.random() * 360 + 'deg');
-                
                 container.appendChild(h);
-                
-                // Xóa ngay sau khi animation xong để giải phóng bộ nhớ
                 setTimeout(() => h.remove(), 8000);
             }, 600);
         }
 
-        // 5. AUTO PLAY VIDEO THÔNG MINH
+        // 5. AUTO PLAY VIDEO
         function setupVideoObserver() {
             const v = document.getElementById('weddingVideo');
             const obs = new IntersectionObserver((entries) => {
@@ -514,7 +508,6 @@
                 const h = Math.floor((diff % 86400000) / 3600000);
                 const m = Math.floor((diff % 3600000) / 60000);
                 const s = Math.floor((diff % 60000) / 1000);
-                
                 document.querySelector('.days').innerText = d < 10 ? '0'+d : d;
                 document.querySelector('.hours').innerText = h < 10 ? '0'+h : h;
                 document.querySelector('.minutes').innerText = m < 10 ? '0'+m : m;
